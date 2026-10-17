@@ -5,337 +5,637 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MELBA Technical Department</title>
+<title>MELBA | Technical Department</title>
 
 <style>
 * {
     box-sizing: border-box;
 }
 
-body {
-    background-image: url('https://th.bing.com/th/id/R.d87217d7ce2bd7b22f035551b9776d6c?rik=E6dE0qyzfKSe9g&pid=ImgRaw&r=0');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 15px;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
+:root {
+    --navy: #07182e;
+    --blue: #168cff;
+    --cyan: #00d4ff;
+    --green: #00d68f;
+    --white: #ffffff;
 }
 
-/* Back link */
-.back-link {
-    display: inline-block;
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: "Segoe UI", Arial, sans-serif;
     color: white;
-    background: #003366;
-    padding: 10px 20px;
-    border-radius: 8px;
+    background:
+        radial-gradient(ellipse at top left, #164f83 0%, transparent 45%),
+        radial-gradient(ellipse at bottom right, #075c60 0%, transparent 40%),
+        linear-gradient(135deg, #061426, #0b2340 55%, #061426);
+    overflow-x: hidden;
+}
+
+/* Decorative background lights */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::before {
+    background: #00aaff;
+    top: 10%;
+    left: -100px;
+}
+
+body::after {
+    background: #00e6a0;
+    bottom: 0;
+    right: -100px;
+}
+
+/* Top navigation */
+.topbar {
+    max-width: 1100px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    background: linear-gradient(135deg, #0788ff, #00d4ff);
+    box-shadow: 0 0 25px #0788ff55;
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: clamp(17px, 3vw, 24px);
+    letter-spacing: 1px;
+}
+
+.brand p {
+    margin: 5px 0 0;
+    color: #a9c8e8;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.back-link {
     text-decoration: none;
-    font-weight: bold;
-    margin-bottom: 15px;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 12px;
+    border: 1px solid #ffffff35;
+    background: #ffffff10;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .back-link:hover {
-    background: #007bff;
+    background: #168cff;
+    transform: translateY(-2px);
 }
 
-/* Main container */
-.container {
-    background: rgba(220, 225, 225, 0.94);
-    position: relative;
-    width: 347px;
-    height: 350px;
-    max-width: 100%;
-    border: 4px solid blue;
-    border-radius: 20px;
-    margin: 0 auto 25px;
+/* Welcome heading */
+.heading {
+    text-align: center;
+    margin: 25px auto 30px;
 }
 
-/* Original buttons */
-.container button {
-    position: absolute;
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    border: 3px solid white;
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: 0.3s ease;
-    animation: blink-animation 3s infinite;
+.heading h2 {
+    margin: 0;
+    font-size: clamp(23px, 4vw, 36px);
+    font-weight: 800;
+    background: linear-gradient(90deg, #ffffff, #79d8ff, #76ffd4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
-.container button:hover {
-    transform: scale(1.08);
-    animation: none;
-    color: white;
-}
-
-#button1 {
-    margin-left: 100px;
+.heading p {
+    color: #b5cce4;
     margin-top: 10px;
-    background: #008cba;
+    font-size: 14px;
 }
 
-#button2 {
-    margin-left: 10px;
-    margin-top: 50px;
-    background: #565d15;
+/* Main menu glass panel */
+.dashboard {
+    max-width: 950px;
+    margin: auto;
+    padding: 30px 20px;
+    border: 1px solid #ffffff25;
+    border-radius: 28px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.11),
+        rgba(255,255,255,0.035)
+    );
+    box-shadow: 0 25px 70px #00000035;
+    backdrop-filter: blur(15px);
 }
 
-#button3 {
-    margin-left: 5px;
-    margin-top: 148px;
-    background: #9fa52a;
+.section-title {
+    text-align: center;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #a8c9e8;
+    margin: 0 0 28px;
 }
 
-#button4 {
-    margin-left: 73px;
-    margin-top: 220px;
-    background: #2c2aa5;
+/* Main circular buttons */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px 16px;
+    align-items: center;
+    justify-items: center;
 }
 
-#button5 {
-    margin-left: 195px;
-    margin-top: 30px;
-    background: #33a3a9;
-}
-
-#button6 {
-    margin-left: 225px;
-    margin-top: 125px;
-    background: #6b2020;
-}
-
-#button7 {
-    margin-left: 170px;
-    margin-top: 206px;
-    background: #2aa549;
-}
-
-/* Annual plan center button */
-#buttonc {
-    position: absolute;
-    height: 70px !important;
-    width: 70px !important;
-    margin-left: 125px;
-    margin-top: 130px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #006400, #32cd32);
-    font-size: 11px;
-    z-index: 2;
-}
-
-/* Original button blinking animation */
-@keyframes blink-animation {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.82; }
-}
-
-/* New circular buttons section */
-.extra-buttons {
+.menu-link {
+    text-decoration: none;
+    color: white;
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 35px;
-    max-width: 800px;
-    margin: 25px auto;
-    padding: 20px;
 }
 
-/* Remove link underline */
-.extra-buttons a {
-    text-decoration: none;
-}
-
-/* Attractive circle buttons */
-.circle-button {
-    width: 155px;
-    height: 155px;
-    border: 4px solid white;
+.menu-button {
+    --accent: #168cff;
+    width: 145px;
+    height: 145px;
+    max-width: 100%;
     border-radius: 50%;
+    border: 2px solid color-mix(in srgb, var(--accent), white 35%);
+    background: radial-gradient(
+        circle at 30% 20%,
+        color-mix(in srgb, var(--accent), white 20%),
+        color-mix(in srgb, var(--accent), #061426 60%) 75%
+    );
     color: white;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
     cursor: pointer;
-    padding: 12px;
-
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 8px;
-
-    box-shadow: 0 8px 18px rgba(0,0,0,0.4);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-    animation: circlePulse 2.5s infinite;
+    align-items: center;
+    gap: 9px;
+    padding: 13px;
+    text-align: center;
+    box-shadow:
+        0 8px 25px #00000035,
+        inset 0 1px 8px #ffffff25;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: softGlow 3s ease-in-out infinite;
 }
 
-/* Inspection Assigned Persons */
-#buttonInspection {
-    background: linear-gradient(135deg, #005bea, #00c6fb);
+.menu-button:hover {
+    transform: translateY(-7px) scale(1.06);
+    box-shadow:
+        0 0 28px color-mix(in srgb, var(--accent), transparent 45%),
+        0 15px 30px #00000050;
 }
 
-/* Weekly Maintenance Form */
-#buttonWeekly {
-    background: linear-gradient(135deg, #11998e, #38ef7d);
-}
-
-.circle-button:hover {
-    transform: scale(1.12) rotate(3deg);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.5);
-    border-color: #ffe082;
-    animation: none;
-}
-
-.circle-icon {
+.menu-icon {
     font-size: 30px;
     line-height: 1;
 }
 
-@keyframes circlePulse {
+.menu-label {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+/* Button colors */
+.daily-report { --accent: #168cff; }
+.daily-work { --accent: #e0a126; }
+.inspection-form { --accent: #e75d6b; }
+.inspection-output { --accent: #7759ed; }
+.inspection-schedule { --accent: #08b9b0; }
+.response-form { --accent: #df7c32; }
+.response-schedule { --accent: #12b879; }
+
+/* Annual plan section */
+.annual-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    padding-top: 28px;
+    border-top: 1px solid #ffffff25;
+}
+
+.annual-link {
+    text-decoration: none;
+}
+
+.annual-button {
+    width: 170px;
+    height: 75px;
+    border-radius: 22px;
+    border: 2px solid #70ffc5;
+    background: linear-gradient(135deg, #008d67, #00c982);
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 0 25px #00d68f45;
+    transition: 0.3s;
+}
+
+.annual-button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 35px #00e6a0a0;
+}
+
+/* Additional maintenance buttons */
+.extra-section {
+    max-width: 950px;
+    margin: 35px auto;
+}
+
+.extra-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.extra-heading h2 {
+    font-size: 22px;
+    margin: 0 0 8px;
+}
+
+.extra-heading p {
+    font-size: 13px;
+    color: #b5cce4;
+}
+
+.extra-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.extra-link {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.extra-button {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    padding: 20px;
+    border: 2px solid #ffffffb0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.35s ease;
+    box-shadow: 0 12px 35px #00000040;
+}
+
+.assigned-button {
+    background: linear-gradient(145deg, #147bff, #063b9d);
+    box-shadow: 0 0 25px #168cff30;
+}
+
+.weekly-button {
+    background: linear-gradient(145deg, #00b894, #08735d);
+    box-shadow: 0 0 25px #00d68f30;
+}
+
+.extra-button:hover {
+    transform: translateY(-8px) rotate(2deg) scale(1.04);
+    border-color: #ffffff;
+    box-shadow: 0 0 35px #ffffff35;
+}
+
+.extra-icon {
+    font-size: 38px;
+}
+
+.extra-label {
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 800;
+}
+
+.extra-subtitle {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    color: #91abc7;
+    font-size: 12px;
+    margin: 30px auto 10px;
+}
+
+/* Animation */
+@keyframes softGlow {
     0%, 100% {
-        box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+        filter: brightness(1);
     }
     50% {
-        box-shadow: 0 8px 25px rgba(0,150,255,0.55);
+        filter: brightness(1.09);
     }
 }
 
-/* Responsive display for phones */
-@media (max-width: 420px) {
+/* Tablets */
+@media (max-width: 760px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px 10px;
+    }
+
+    .menu-button {
+        width: 130px;
+        height: 130px;
+    }
+
+    .dashboard {
+        padding: 25px 12px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
     body {
-        padding: 10px;
+        padding: 12px;
         background-attachment: scroll;
     }
 
-    .container {
-        transform: scale(0.95);
-        transform-origin: top center;
-        margin-bottom: 5px;
+    .topbar {
+        align-items: flex-start;
     }
 
-    .extra-buttons {
-        gap: 18px;
-        padding: 10px 0;
+    .brand-icon {
+        width: 43px;
+        height: 43px;
     }
 
-    .circle-button {
+    .brand p {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .back-link {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .heading {
+        margin: 20px auto;
+    }
+
+    .dashboard {
+        border-radius: 20px;
+        padding: 22px 8px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 5px;
+    }
+
+    .menu-button {
         width: 135px;
         height: 135px;
-        font-size: 12px;
-        padding: 9px;
     }
 
-    .circle-icon {
-        font-size: 25px;
+    .menu-icon {
+        font-size: 27px;
+    }
+
+    .menu-label {
+        font-size: 11px;
+    }
+
+    .extra-grid {
+        gap: 12px;
+    }
+
+    .extra-button {
+        width: min(42vw, 165px);
+        height: min(42vw, 165px);
+        padding: 12px;
+        gap: 7px;
+    }
+
+    .extra-icon {
+        font-size: 29px;
+    }
+
+    .extra-label {
+        font-size: 12px;
+    }
+
+    .extra-subtitle {
+        font-size: 10px;
     }
 }
 
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<a class="back-link" href="https://etachali2-prog.github.io/report">
-    &#8592; Back
-</a>
+<!-- Header -->
+<header class="topbar">
+
+    <div class="brand">
+        <div class="brand-icon">⚙️</div>
+        <div>
+            <h1>MELBA TECHNICAL</h1>
+            <p>MAINTENANCE MANAGEMENT SYSTEM</p>
+        </div>
+    </div>
+
+    <a class="back-link"
+       href="https://etachali2-prog.github.io/report">
+        ← Back to Reports
+    </a>
+
+</header>
+
+<!-- Page heading -->
+<section class="heading">
+    <h2>Technical Department Dashboard</h2>
+    <p>Maintenance • Inspection • Planning • Reporting</p>
+</section>
 
 <!-- Main menu -->
-<div class="container">
+<main class="dashboard">
 
-    <a href="https://etachali2-prog.github.io/reportForm/">
-        <button type="button" id="button1">
-            Daily Report Form
-        </button>
-    </a>
+    <h3 class="section-title">Reports & Inspection Management</h3>
 
-    <a href="https://etachali2-prog.github.io/repoShow/">
-        <button type="button" id="button2">
-            Daily Work Done
-        </button>
-    </a>
+    <div class="menu-grid">
 
-    <a href="https://etachali2-prog.github.io/inspection/">
-        <button type="button" id="button3">
-            Inspection Report Form
-        </button>
-    </a>
+        <a class="menu-link"
+           href="https://etachali2-prog.github.io/reportForm/">
+            <button type="button" class="menu-button daily-report">
+                <span class="menu-icon">📋</span>
+                <span class="menu-label">Daily Report Form</span>
+            </button>
+        </a>
 
-    <a href="https://etachali2-prog.github.io/inspDisp/">
-        <button type="button" id="button4">
-            Inspection Output
-        </button>
-    </a>
+        <a class="menu-link"
+           href="https://etachali2-prog.github.io/repoShow/">
+            <button type="button" class="menu-button daily-work">
+                <span class="menu-icon">🛠️</span>
+                <span class="menu-label">Daily Work Done</span>
+            </button>
+        </a>
 
-    <a href="https://etachali2-prog.github.io/insSchedule/">
-        <button type="button" id="button5">
-            Inspection Schedule Form
-        </button>
-    </a>
+        <a class="menu-link"
+           href="https://etachali2-prog.github.io/inspection/">
+            <button type="button" class="menu-button inspection-form">
+                <span class="menu-icon">🔍</span>
+                <span class="menu-label">Inspection Report Form</span>
+            </button>
+        </a>
 
-    <a href="https://etachali2-prog.github.io/inspeRespOrder/">
-        <button type="button" id="button6">
-            Inspection Respond Order Form
-        </button>
-    </a>
+        <a class="menu-link"
+           href="https://etachali2-prog.github.io/inspDisp/">
+            <button type="button" class="menu-button inspection-output">
+                <span class="menu-icon">📊</span>
+                <span class="menu-label">Inspection Output</span>
+            </button>
+        </a>
 
-    <a href="https://etachali2-prog.github.io/insRespOrdDisp/">
-        <button type="button" id="button7">
-            Inspection Respond Order Schedule
-        </button>
-    </a>
+        <a class="menu-link"
+           href="https://etachali2-prog.github.io/insSchedule/">
+            <button type="button" class="menu-button inspection-schedule">
+                <span class="menu-icon">📅</span>
+                <span class="menu-label">Inspection Schedule Form</span>
+            </button>
+        </a>
 
-    <a href="https://etachali2-prog.github.io/Annual-Plan/">
-        <button type="button" id="buttonc">
-            ANNUAL PLAN
-        </button>
-    </a>
+        <a class="menu-link"
+           href="https://etachali2-prog.github.io/inspeRespOrder/">
+            <button type="button" class="menu-button response-form">
+                <span class="menu-icon">📝</span>
+                <span class="menu-label">Inspection Respond Order Form</span>
+            </button>
+        </a>
 
-</div>
+        <a class="menu-link"
+           href="https://etachali2-prog.github.io/insRespOrdDisp/">
+            <button type="button" class="menu-button response-schedule">
+                <span class="menu-icon">📑</span>
+                <span class="menu-label">Inspection Respond Order Schedule</span>
+            </button>
+        </a>
 
-<!-- New attractive circular buttons -->
-<div class="extra-buttons">
+    </div>
 
-    <a href="https://etachali2-prog.github.io/PM-Report/">
-        <button type="button"
-                class="circle-button"
-                id="buttonInspection">
+    <!-- Annual plan -->
+    <div class="annual-area">
+        <a class="annual-link"
+           href="https://etachali2-prog.github.io/Annual-Plan/">
+            <button type="button" class="annual-button">
+                📈 ANNUAL PLAN
+            </button>
+        </a>
+    </div>
 
-            <span class="circle-icon">&#128101;</span>
+</main>
 
-            <span>
-                Inspection Assigned Persons
-            </span>
+<!-- Maintenance shortcuts -->
+<section class="extra-section">
 
-            <span>
-                ለ INSPECTION የተመደቡ ሰዎች
-            </span>
+    <div class="extra-heading">
+        <h2>Maintenance & Team Management</h2>
+        <p>Quick access to team assignments and preventive maintenance</p>
+    </div>
 
-        </button>
-    </a>
+    <div class="extra-grid">
 
-    <a href="https://etachali2-prog.github.io/Weekly-maintenance/">
-        <button type="button"
-                class="circle-button"
-                id="buttonWeekly">
+        <a class="extra-link"
+           href="https://etachali2-prog.github.io/PM-Report/">
+            <button type="button"
+                    class="extra-button assigned-button">
 
-            <span class="circle-icon">&#128736;</span>
+                <span class="extra-icon">👥</span>
 
-            <span>
-                Weekly Maintenance Form
-            </span>
+                <span class="extra-label">
+                    Inspection Assigned Persons
+                </span>
 
-        </button>
-    </a>
+                <span class="extra-subtitle">
+                    ለ INSPECTION የተመደቡ ሰዎች
+                </span>
 
-</div>
+            </button>
+        </a>
+
+        <a class="extra-link"
+           href="https://etachali2-prog.github.io/Weekly-maintenance/">
+            <button type="button"
+                    class="extra-button weekly-button">
+
+                <span class="extra-icon">🔧</span>
+
+                <span class="extra-label">
+                    Weekly Maintenance Form
+                </span>
+
+                <span class="extra-subtitle">
+                    Preventive Maintenance
+                </span>
+
+            </button>
+        </a>
+
+    </div>
+
+</section>
+
+<footer class="footer">
+    MELBA PRINTING, PUBLISHING & PACKAGING S.C.
+    <br>
+    Technical Department | Maintenance Management System
+</footer>
 
 </body>
 </html>
