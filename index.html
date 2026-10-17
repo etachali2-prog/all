@@ -1,109 +1,341 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MELBA Technical Department</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
 body {
-      /* Replace the URL below with your actual image path or link */
-      background-image: url('https://th.bing.com/th/id/R.d87217d7ce2bd7b22f035551b9776d6c?rik=E6dE0qyzfKSe9g&pid=ImgRaw&r=0');
-      
-      /* Prevents the image from repeating like tiles */
-      background-repeat: no-repeat;
-      
-      /* Centers the image perfectly */
-      background-position: center;
-      
-      /* Stretches the image to cover the entire screen smoothly */
-      background-size: cover;
-      
-      /* Keeps the background fixed so it doesn't move when you scroll */
-      background-attachment: fixed;
-      
-      /* Minimal resets to prevent white borders */
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-    }
-.container{
-    background-color: rgb(159, 161, 161);
-    position:relative;
+    background-image: url('https://th.bing.com/th/id/R.d87217d7ce2bd7b22f035551b9776d6c?rik=E6dE0qyzfKSe9g&pid=ImgRaw&r=0');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 15px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Back link */
+.back-link {
+    display: inline-block;
+    color: white;
+    background: #003366;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.back-link:hover {
+    background: #007bff;
+}
+
+/* Main container */
+.container {
+    background: rgba(220, 225, 225, 0.94);
+    position: relative;
     width: 347px;
     height: 350px;
-    border: 4px solid;
+    max-width: 100%;
+    border: 4px solid blue;
     border-radius: 20px;
-    border-color: blue;
-    
+    margin: 0 auto 25px;
 }
 
-
-
-  #buttonc{
-    padding: 12px 24px;
-    font-size: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+/* Original buttons */
+.container button {
+    position: absolute;
     height: 100px;
-   
-    
-    /* 1. Link the animation name, duration, and make it repeat forever */
-    animation: blink-animation 1s infinite;
-  }
-
-  /* 2. Define what the blinking actually does */
-  @keyframes blink-animation {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-#button1{position: absolute;height: 100px; margin-left: 100px;margin-top: 10px;border-radius: 50px;width: 100px;}
-#button2{position: absolute;height: 100px; margin-left: 10px;margin-top: 50px;border-radius: 50px;width: 100px;}
-#button3{position: absolute;height: 100px; margin-left: 5px;margin-top: 148px;border-radius: 50px;width: 100px;}
-#button4{position: absolute;height: 100px; margin-left: 73px;margin-top: 220px;border-radius: 50px;width: 100px;}
-#button5{position: absolute;height: 100px; margin-left: 195px;margin-top: 30px;border-radius: 50px;width: 100px;}
-#button6{position: absolute;height: 100px; margin-left: 225px;margin-top: 125px;border-radius: 50px;width: 100px;}
-#button7{position: absolute;height: 100px; margin-left: 170px;margin-top: 206px;border-radius: 50px;width: 100px;}
-
-#button1:hover{background-color: rgb(18, 193, 196);color: aliceblue;}
-#button2:hover{background-color: rgb(91, 97, 15);color: aliceblue;}
-#button3:hover{background-color: rgb(159, 165, 42);color: aliceblue;}
-#button4:hover{background-color: rgb(44, 42, 165);color: aliceblue;}
-#button5:hover{background-color: rgb(51, 163, 169);color: aliceblue;}
-#button6:hover{background-color: rgb(62, 12, 12);color: aliceblue;}
-#button7:hover{background-color: rgb(42, 165, 73);color: aliceblue;}
-
-
-
-#buttonc{position: absolute;height: 70px; margin-left: 125px;margin-top: 130px;border-radius: 35px;width: 70px;background-color: green;}
-
-a{
-    text-decoration: none;
-    margin-top: 20px;
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid white;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.3s ease;
+    animation: blink-animation 3s infinite;
 }
-    </style
+
+.container button:hover {
+    transform: scale(1.08);
+    animation: none;
+    color: white;
+}
+
+#button1 {
+    margin-left: 100px;
+    margin-top: 10px;
+    background: #008cba;
+}
+
+#button2 {
+    margin-left: 10px;
+    margin-top: 50px;
+    background: #565d15;
+}
+
+#button3 {
+    margin-left: 5px;
+    margin-top: 148px;
+    background: #9fa52a;
+}
+
+#button4 {
+    margin-left: 73px;
+    margin-top: 220px;
+    background: #2c2aa5;
+}
+
+#button5 {
+    margin-left: 195px;
+    margin-top: 30px;
+    background: #33a3a9;
+}
+
+#button6 {
+    margin-left: 225px;
+    margin-top: 125px;
+    background: #6b2020;
+}
+
+#button7 {
+    margin-left: 170px;
+    margin-top: 206px;
+    background: #2aa549;
+}
+
+/* Annual plan center button */
+#buttonc {
+    position: absolute;
+    height: 70px !important;
+    width: 70px !important;
+    margin-left: 125px;
+    margin-top: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #006400, #32cd32);
+    font-size: 11px;
+    z-index: 2;
+}
+
+/* Original button blinking animation */
+@keyframes blink-animation {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.82; }
+}
+
+/* New circular buttons section */
+.extra-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    max-width: 800px;
+    margin: 25px auto;
+    padding: 20px;
+}
+
+/* Remove link underline */
+.extra-buttons a {
+    text-decoration: none;
+}
+
+/* Attractive circle buttons */
+.circle-button {
+    width: 155px;
+    height: 155px;
+    border: 4px solid white;
+    border-radius: 50%;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    padding: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    animation: circlePulse 2.5s infinite;
+}
+
+/* Inspection Assigned Persons */
+#buttonInspection {
+    background: linear-gradient(135deg, #005bea, #00c6fb);
+}
+
+/* Weekly Maintenance Form */
+#buttonWeekly {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.circle-button:hover {
+    transform: scale(1.12) rotate(3deg);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+    border-color: #ffe082;
+    animation: none;
+}
+
+.circle-icon {
+    font-size: 30px;
+    line-height: 1;
+}
+
+@keyframes circlePulse {
+    0%, 100% {
+        box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(0,150,255,0.55);
+    }
+}
+
+/* Responsive display for phones */
+@media (max-width: 420px) {
+    body {
+        padding: 10px;
+        background-attachment: scroll;
+    }
+
+    .container {
+        transform: scale(0.95);
+        transform-origin: top center;
+        margin-bottom: 5px;
+    }
+
+    .extra-buttons {
+        gap: 18px;
+        padding: 10px 0;
+    }
+
+    .circle-button {
+        width: 135px;
+        height: 135px;
+        font-size: 12px;
+        padding: 9px;
+    }
+
+    .circle-icon {
+        font-size: 25px;
+    }
+}
+
+</style>
 </head>
+
 <body>
-    <a href="https://etachali2-prog.github.io/report">Back</a>
-    <div class="container">
 
-   <a href="https://etachali2-prog.github.io/reportForm/"><button id="button1"> Daily Report Form</button></a> 
-   <a href="https://etachali2-prog.github.io/repoShow/"><button id="button2">Daily Work Done</button></a>
+<a class="back-link" href="https://etachali2-prog.github.io/report">
+    &#8592; Back
+</a>
 
- <a href="https://etachali2-prog.github.io/inspection/"><button id="button3">Inspection Report Form</button></a> 
-<a href="https://etachali2-prog.github.io/inspDisp/"><button id="button4">Inspection Output</button></a>
- <a href="https://etachali2-prog.github.io/insSchedule/"><button id="button5">Inspection Schedule Form</button></a>  
-<a href="https://etachali2-prog.github.io/inspeRespOrder/"><button id="button6">Inspection Respond Order Form</button></a> 
- <a href="https://etachali2-prog.github.io/insRespOrdDisp/"><button id="button7">Inspection Respond Order Schedule</button></a>
-<a href="https://etachali2-prog.github.io/Annual-Plan/"><button id="buttonc">ANNUAL PLANE</button></a>
-    </div>
-   <a href="https://etachali2-prog.github.io/PM-Report/"><button id="buttonp">Insection dhaaf namoota ramadaman/ለ INSPECTION የተመደቡ ሰዎች</button></a>
-     
-        <a href="https://etachali2-prog.github.io/Weekly-maintenance/"><button id="buttonp">Weekly Maintenance</button></a> 
-       
+<!-- Main menu -->
+<div class="container">
+
+    <a href="https://etachali2-prog.github.io/reportForm/">
+        <button type="button" id="button1">
+            Daily Report Form
+        </button>
+    </a>
+
+    <a href="https://etachali2-prog.github.io/repoShow/">
+        <button type="button" id="button2">
+            Daily Work Done
+        </button>
+    </a>
+
+    <a href="https://etachali2-prog.github.io/inspection/">
+        <button type="button" id="button3">
+            Inspection Report Form
+        </button>
+    </a>
+
+    <a href="https://etachali2-prog.github.io/inspDisp/">
+        <button type="button" id="button4">
+            Inspection Output
+        </button>
+    </a>
+
+    <a href="https://etachali2-prog.github.io/insSchedule/">
+        <button type="button" id="button5">
+            Inspection Schedule Form
+        </button>
+    </a>
+
+    <a href="https://etachali2-prog.github.io/inspeRespOrder/">
+        <button type="button" id="button6">
+            Inspection Respond Order Form
+        </button>
+    </a>
+
+    <a href="https://etachali2-prog.github.io/insRespOrdDisp/">
+        <button type="button" id="button7">
+            Inspection Respond Order Schedule
+        </button>
+    </a>
+
+    <a href="https://etachali2-prog.github.io/Annual-Plan/">
+        <button type="button" id="buttonc">
+            ANNUAL PLAN
+        </button>
+    </a>
+
+</div>
+
+<!-- New attractive circular buttons -->
+<div class="extra-buttons">
+
+    <a href="https://etachali2-prog.github.io/PM-Report/">
+        <button type="button"
+                class="circle-button"
+                id="buttonInspection">
+
+            <span class="circle-icon">&#128101;</span>
+
+            <span>
+                Inspection Assigned Persons
+            </span>
+
+            <span>
+                ለ INSPECTION የተመደቡ ሰዎች
+            </span>
+
+        </button>
+    </a>
+
+    <a href="https://etachali2-prog.github.io/Weekly-maintenance/">
+        <button type="button"
+                class="circle-button"
+                id="buttonWeekly">
+
+            <span class="circle-icon">&#128736;</span>
+
+            <span>
+                Weekly Maintenance Form
+            </span>
+
+        </button>
+    </a>
+
+</div>
+
 </body>
 </html>
